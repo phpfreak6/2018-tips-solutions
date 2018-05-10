@@ -1,0 +1,288 @@
+
+
+@media screen and (max-width:1200px)
+{
+	.navigation ul li a {
+	  font-size: 14px;
+	  color: #fff;
+	  float: left;
+	  width: 100%;
+	}
+	.head_right {
+	  float: right;
+	  width: auto;
+	}
+	.navigation {
+	  margin: 0px;
+	  display: none;
+	}
+	.toggle {
+	  display: block;
+	}
+	.header .container
+	{
+		position: relative;
+	}
+	.navigation {
+	  background: #58585A;
+	  position: absolute;
+	  left: 0px;
+	  right: 0px;
+	  top: 107%;
+	  z-index: 99;
+	}
+	.navigation ul li {
+	  border-bottom: 1px solid #ffffff;
+	  float: left;
+	  padding: 5px 15px;
+	  width: 100%;
+	}
+	.navigation ul li:hover
+	{
+		background: #0F75BC;
+		
+	}
+	.navigation ul li:hover a 
+	{
+		color: #fff;
+	}
+
+}
+
+
+@media screen and (max-width:1100px)
+{
+	.total_investment a
+	{
+		font-size: 20px;
+	}
+	.total_investment a span {
+      font-size: 16px;
+	}
+	.sec_text h2
+	{
+		font-size: 27px;
+	}
+	.sec_text {
+	  padding-left: 15px;
+	}
+	.footer_center
+	{
+		padding-left: 15px;
+	}
+	.other_service_icon {
+	  position: relative;
+	  margin-bottom: 15px;
+	}
+	.inner_service {
+	  padding-left:0px;
+	  text-align: center;
+	}
+	.inner_service h4
+	{
+		font-size: 17px;
+	}
+
+}
+@media screen and (max-width:992px)
+{
+	.property_box
+	{
+		min-height: 530px;
+	}
+	.total_investment h1 , .heading , .testimonial_sec h1
+	{
+		font-size: 30px;
+	}
+	.footer_box .footer_ul
+	{
+	    -webkit-column-count: 2;
+	       -moz-column-count: 2;
+	            column-count:2;
+	}
+	.wh_video_text {
+	  padding-top: 0;
+	}
+	.inner_sec h1
+	{
+		font-size: 35px;
+		line-height: 35px;
+	}
+	.inner_sec h1 span
+	{
+		font-size: 20px;
+	}
+	.abt_img {
+	  margin-bottom: 30px;
+	}
+	.learn_btn a
+	{
+		font-size: 14px;
+	}
+	.wh_video {
+	  margin-bottom: 20px;
+	}
+	.inner_banner h2 {
+	  font-size: 40px;
+	}
+	.inner_banner p
+	{
+		font-size: 22px;
+	}
+	.wh_member , .wh_prop_type {
+	  margin-bottom: 30px;
+	  width: 50%;
+	}
+	.location_text p {
+	  float: left;
+	  text-align: center;
+	  width: 100%;
+	}
+	.location_text
+	{
+		width: 100%;
+	}
+	.icons_ul {
+	  float: right;
+	  text-align: center;
+	  width: 100%;
+	}
+}
+
+@media screen and (max-width:767px)
+{
+	p 
+	{
+		font-size: 15px;
+		line-height: 25px;
+	}
+	.service_box , .boxes
+	{
+		margin-bottom: 30px;
+	}
+	.sec_img {
+	  padding-right: 0;
+	}
+	.overlay_box
+	{
+		right: 20px;
+	}
+	.footer_center {
+	  border: medium none;
+	  margin-bottom: 30px;
+	  margin-top: 30px;
+	  min-height: auto;
+	}
+	.total_investment h1, .heading, .testimonial_sec h1 {
+	  font-size: 25px;
+	}
+	.test_text p {
+	  padding: 0;
+	}
+	.wk_input input, .wk_input textarea
+	{
+		font-size: 14px;
+	}
+	.sec_text h2 {
+	  font-size: 23px;
+	}
+	.knw_btn {
+	  bottom: auto;
+	  position: relative;
+	}
+	.test_text
+	{
+		padding: 20px;
+	}
+	.total_investment a {
+	  font-size: 18px;
+	}
+	.property_box {
+	  min-height: auto;
+	}
+	.client_name
+	{
+		font-size: 16px;
+	}
+	.logo {
+	  width: 100%;
+	  text-align: center;
+	  margin-bottom: 20px;
+	}
+	.head_right {
+	  float: left;
+	  width: 100%;
+	}
+	.top_bar {
+	  float: left;
+	  width: auto;
+	}
+	.tabs_ul ul.tabs
+	{
+		width: 280px;
+	}
+	.tabs_ul ul.tabs li
+	{
+		padding: 5px 15px;
+	}
+	.text1
+	{
+		font-size: 16px;
+	}
+	.prop_sec
+	{
+		margin-bottom: 0px;
+	}
+	.location_text {
+	  text-align: center;
+	}
+	.icons_ul {
+	  float: right;
+	  text-align: center;
+	  width: 100%;
+	}
+	.wh_btn > a
+	{
+		margin-bottom: 15px;
+		font-size: 15px;
+		font-weight: normal;
+	}
+	.location_text p {
+	  float: left;
+	  text-align: center;
+	  width: 100%;
+	}
+	.location_text
+	{
+		width: 100%;
+	}
+}
+@media screen and (max-width:500px)
+{
+	.wh_member, .wh_prop_type {
+	  width: 100%;
+	}
+}
+
+@media screen and (max-width:470px)
+{
+	.footer_box .footer_ul
+	{
+	    -webkit-column-count: 1;
+	       -moz-column-count: 1;
+	            column-count:1;
+	}
+	.phone_no a , .social_icons ul li a
+	{
+		font-size: 14px;
+	}
+	.phone_no {
+	  line-height: 19px;
+	  margin-left: 10px;
+	  padding-left: 15px;
+	}
+	.toggle
+	{
+		margin-top: -5px;
+	}
+}
