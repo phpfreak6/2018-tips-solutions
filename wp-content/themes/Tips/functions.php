@@ -205,4 +205,20 @@ function our_team_redirect_post() {
     exit;
   }
 }
+
+function tips_theme_setup() {
+  register_nav_menus( array( 
+    'header' => 'Header menu', 
+    'footer' => 'Footer menu' 
+  ) );
+ }
+
+add_action( 'after_setup_theme', 'tips_theme_setup' );
+
+function remove_posts_menu() {
+    remove_menu_page('edit.php');
+}
+add_action('admin_menu', 'remove_posts_menu');
+
+
 ?>

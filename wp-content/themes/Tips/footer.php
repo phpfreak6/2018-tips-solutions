@@ -16,6 +16,21 @@
 		$wk_footer_right_logo_5 = get_post_meta($home_id,'wpcf-add-footer-right-logo-5',true);
 		$wk_footer_right_logo_5_link = get_post_meta($home_id,'wpcf-add-footer-right-logo-5-link',true);
 		$wk_footer_bottom_text = get_post_meta($home_id,'wpcf-footer-bottom-text',true);
+		$wk_testimonial_title = get_post_meta($home_id,'wpcf-add-testimonial-title',true);
+		$wk_other_service_title = get_post_meta($home_id,'wpcf-add-other-service-title',true);
+		$wk_link_text = get_post_meta($home_id,'wpcf-add-link-text',true);
+		$wk_first_service_title = get_post_meta($home_id,'wpcf-add-first-service-title',true);
+		$wk_first_service_small_content = get_post_meta($home_id,'wpcf-add-first-service-small-content',true);
+		$wk_first_service_image = get_post_meta($home_id,'wpcf-add-first-service-image',true);
+		$wk_first_service_link = get_post_meta($home_id,'wpcf-add-first-service-link',true);
+		$wk_second_service_title = get_post_meta($home_id,'wpcf-add-second-service-title',true);
+		$wk_second_service_small_content = get_post_meta($home_id,'wpcf-add-second-service-small-content',true);
+		$wk_second_service_image = get_post_meta($home_id,'wpcf-add-second-service-image',true);
+		$wk_second_service_link = get_post_meta($home_id,'wpcf-add-second-service-link',true);
+		$wk_third_service_title = get_post_meta($home_id,'wpcf-add-third-service-title',true);
+		$wk_third_service_small_content = get_post_meta($home_id,'wpcf-add-third-service-small-content',true);
+		$wk_third_service_image = get_post_meta($home_id,'wpcf-add-third-service-image',true);
+		$wk_third_service_link = get_post_meta($home_id,'wpcf-add-third-service-link',true);
 		
 
 ?>
@@ -51,19 +66,19 @@
 
 <section class="other_services">
 	<div class="container">
-		<h1 class="heading">Other Services From The Tips Group</h1>
+		<h1 class="heading"><?= $wk_other_service_title; ?></h1>
 
 		<div class="other_service_box">
 			<div class="col-xs-12 col-sm-4 boxes">
 				<div class="inner_service">
 					<div class="other_service_icon">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/service_icon1.png">
+						<img alt="<?= $wk_first_service_title; ?>" src="<?= $wk_first_service_image; ?>">
 					</div>
 
 					<div class="other_service_text">
-						<h4>Does your property need some maintenance? </h4>
-						<span>we can help</span>
-						<a href="#" class="find_btn">Find Out More <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/right_arrw.png"></a>
+						<h4><?= $wk_first_service_title; ?></h4>
+						<span><?= $wk_first_service_small_content; ?></span>
+						<a href="<?php if(empty($wk_first_service_link)){ echo "javascript:void(0)"; }else{ echo $wk_first_service_link; } ?>" class="find_btn"><?= $wk_link_text; ?> <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/right_arrw.png"></a>
 					</div>
 
 				</div>
@@ -73,13 +88,13 @@
 			<div class="col-xs-12 col-sm-4 boxes">
 				<div class="inner_service">
 					<div class="other_service_icon">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/service_icon2.png">
+						<img alt="<?= $wk_second_service_title; ?>" src="<?= $wk_first_service_image; ?>">
 					</div>
 
 					<div class="other_service_text">
-						<h4>Need a Home Loan Health Check? </h4>
-						<span>we can help</span>
-						<a href="#" class="find_btn">Find Out More <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/right_arrw.png"></a>
+						<h4><?= $wk_second_service_title; ?> </h4>
+						<span><?= $wk_second_service_small_content; ?></span>
+						<a href="<?php if(empty($wk_second_service_link)){ echo "javascript:void(0)"; }else{ echo $wk_second_service_link; } ?>" class="find_btn"><?= $wk_link_text; ?> <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/right_arrw.png"></a>
 					</div>
 
 				</div>
@@ -89,13 +104,13 @@
 			<div class="col-xs-12 col-sm-4 boxes">
 				<div class="inner_service">
 					<div class="other_service_icon">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/service_icon3.png">
+						<img alt="<?= $wk_third_service_title; ?>" src="<?= $wk_third_service_image; ?>">
 					</div>
 
 					<div class="other_service_text">
-						<h4>Need a Property Manager to Look after your investment? </h4>
-						<span>we can help</span>
-						<a href="#" class="find_btn">Find Out More <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/right_arrw.png"></a>
+						<h4><?= $wk_third_service_title; ?> </h4>
+						<span><?= $wk_third_service_small_content; ?></span>
+						<a href="<?php if(empty($wk_third_service_link)){ echo "javascript:void(0)"; }else{ echo $wk_third_service_link; } ?>" class="find_btn"><?= $wk_link_text; ?> <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/right_arrw.png"></a>
 					</div>
 
 				</div>
@@ -109,7 +124,7 @@
 
 <section class="testimonial_sec">
 	<div class="container">
-		<h1>What Our Client Says</h1>
+		<h1><?= $wk_testimonial_title; ?></h1>
 
 
 		<div class="owl-carousel owl-theme" id="owl-demo">
@@ -157,20 +172,20 @@
 		<div class="col-xs-12 col-sm-5 footer_box">
 			<h6><?= $wk_footer_left_title ; ?></h6>
 			<ul class="footer_ul">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">SMSF</a></li>
-				<li><a href="#">$19 a week</a></li>
-				<li><a href="#">Education Centre</a></li>
-				<li><a href="#">Careers</a></li>
-				<li><a href="#">Contact Us</a></li>
-				<li><a href="#">Property Management</a></li>
-				<li><a href="#">Property Investment Articles</a></li>
-				<li><a href="#">Property Alerts</a></li>
-				<li><a href="#">Our Services</a></li>
-				<li><a href="#">About Us</a></li>
-				<li><a href="#">Testimonials</a></li>
-				<li><a href="#">Privacy Policy</a></li>
-				<li><a href="#">Sitemap</a></li>
+				<li><a href="javascript:void(0)">Home</a></li>
+				<li><a href="javascript:void(0)">SMSF</a></li>
+				<li><a href="javascript:void(0)">$19 a week</a></li>
+				<li><a href="javascript:void(0)">Education Centre</a></li>
+				<li><a href="javascript:void(0)">Careers</a></li>
+				<li><a href="javascript:void(0)">Contact Us</a></li>
+				<li><a href="javascript:void(0)">Property Management</a></li>
+				<li><a href="javascript:void(0)">Property Investment Articles</a></li>
+				<li><a href="javascript:void(0)">Property Alerts</a></li>
+				<li><a href="javascript:void(0)">Our Services</a></li>
+				<li><a href="javascript:void(0)">About Us</a></li>
+				<li><a href="javascript:void(0)">Testimonials</a></li>
+				<li><a href="javascript:void(0)">Privacy Policy</a></li>
+				<li><a href="javascript:void(0)">Sitemap</a></li>
 
 			</ul>
 		</div>
@@ -289,7 +304,7 @@
 	</div>
 </section>
 
-<!--<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.min.js"></script>-->
+<!--<script src="<?php //echo get_stylesheet_directory_uri(); ?>/js/jquery.min.js"></script>-->
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap.min.js"></script> 
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/owl.carousel.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

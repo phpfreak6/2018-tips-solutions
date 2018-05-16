@@ -950,6 +950,7 @@ p
   font-family: 'raavi';
   font-size: 35px;
   color: rgba(46,46,46,0.8);
+  text-transform: uppercase;
 }
 .sec_one p 
 {
@@ -1277,7 +1278,7 @@ p
   margin: 0 auto;
   padding: 7px;
   text-align: center;
-  width: 339px;
+  width: 545px;
   border:1px solid #d4d4d4;
 }
 .tabs_ul ul.tabs li {

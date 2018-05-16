@@ -140,15 +140,16 @@
 			</div>                                                                    
 
 			<div class="navigation">
-				<ul>
-				  <li><a href="<?php echo site_url(); ?>">Home</a></li>
+				<?php wp_nav_menu( array('menu' => 'main menu')); ?>  
+				<!--<ul>
+				  <li><a href="<?php //echo site_url(); ?>">Home</a></li>
 				  <li><a href="#">3 x Core Offering</a></li>
-				  <li><a href="<?php echo site_url(); ?>/property-management/">Property management</a></li>
+				  <li><a href="<?php //echo site_url(); ?>/property-management/">Property management</a></li>
 				  <li><a href="#">Insights / Tips</a></li>
-				  <li><a href="<?php echo site_url(); ?>/about/">About</a></li>
-				  <li><a href="<?php echo site_url(); ?>/contact/">Contact</a></li>
+				  <li><a href="<?php //echo site_url(); ?>/about/">About</a></li>
+				  <li><a href="<?php //echo site_url(); ?>/contact/">Contact</a></li>
 				  <li><a href="#">Individual house listing</a></li>
-				</ul>
+				</ul>-->
 			</div>
        
        <div class="toggle"><i class="fas fa-bars"></i></div>

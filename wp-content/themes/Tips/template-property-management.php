@@ -125,224 +125,98 @@ get_header();
 
 		<div class="tabs_ul">
 			<ul class="tabs">
-				<li class="tab-link current" data-tab="tab-1">Sold</li>
-				<li class="tab-link" data-tab="tab-2">For Sale</li>
-				<li class="tab-link" data-tab="tab-3">For Rent</li>
+				<li class="tab-link current" data-tab="tab-Sold">Sold</li>
+				<li class="tab-link" data-tab="tab-Sale">For Sale</li>
+				<li class="tab-link" data-tab="tab-Rent">For Rent</li>
+				<li class="tab-link" data-tab="tab-Construction">Under Construction</li>
 			</ul>
 
 		</div>
+		
+	
 
-      <div id="tab-1" class="tab-content current">
+      <div id="tab-Sold" class="tab-content current">
 		<div class="prop_type">
-			<p  class="text1">12 properties for rent by TIPS Property Management RLA 240800 - ST PETERS</p>
+		
+	
+			<p  class="text1"><?php 
+			
+					$count_posts  = wp_count_posts('properties-post'); 
+					
+					echo $count_posts->publish; ?> 
+					properties for rent by TIPS Property Management RLA 240800 - ST PETERS</p>
+			
+			
 
 			<div class="row">
+			
+			
+				<?php
+			
+		$posts_properties = get_posts(array('post_type'=>'properties-post','post_status'=>'publish','posts_per_page'=>-1,'order'=>'ASC')); 
+		
+		
+						
+			foreach($posts_properties as $post_propertie) {
+							
+			$wk_number_properties_left = get_post_meta($post_propertie->ID,'wpcf-add-number-properties-left',true);	
+			$wk_per_week_price =	get_post_meta($post_propertie->ID,'wpcf-add-per-week-price',true);	
+			$wk_properties_status =	get_post_meta($post_propertie->ID,'wpcf-add-properties-status',true);	
+			$wk_sold_date =	get_post_meta($post_propertie->ID,'wpcf-add-sold-date',true);	
+			$wk_bathroom_numbers =	get_post_meta($post_propertie->ID,'wpcf-add-bathroom-numbers',true);	
+			$wk_parking_space =	get_post_meta($post_propertie->ID,'wpcf-add-parking-space',true);	
+			$wk_bathtub_number =	get_post_meta($post_propertie->ID,'wpcf-add-bathtub-number',true);	
+			$wk_properties_address =	get_post_meta($post_propertie->ID,'wpcf-add-properties-address',true);	
+			$wk_image = wp_get_attachment_url(get_post_thumbnail_ID($post_propertie->ID));
+			
+			 if(!empty($wk_image)){
+								 
+								 $wk_img = $wk_image;
+								 
+							 }else{
+								 
+								  $wk_img = "/wp-content/themes/Tips/images/dummy.jpg";
+								 
+							 }
+	
+	
+		if($wk_properties_status == "Sold"){
+  
+		?>
+		
+			
 			  <div class="col-xs-12 col-sm-3 wh_prop_type">
 			  	<div class="prop_sec">
 			  		<div class="prop_img">
-			  			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prop1.jpg">
+			  			<img src="<?php echo $wk_img; ?>">
 			  		</div>
 
 			  		<div class="prop_head">
-			  			<h4>Contact agent</h4>
-			  			<span>Sold on 19 Jan 2018</span>	
+			  			<h4><?php echo $post_propertie->post_title; ?></h4>
+			  			<span><?= $wk_properties_status; ?> <?php if($wk_properties_status == "Sold"){ ?> on <?= date('d M Y ', $wk_sold_date);; ?> <?php } ?></span>	
 			  		</div>
 
 			  		<div class="locate_text">
-			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png"> 189 East Parkway Lightsview, 5085</h6>
+			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png">
+							<?= $wk_properties_address; ?></h6>
 			  		</div>
 
 			  		 <div class="prop_ul">
 			  		 	<ul>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> 3</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> 2</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"> 2</a></li>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> <?= $wk_bathroom_numbers; ?></a></li>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> <?= $wk_parking_space; ?></a></li>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"><?= $wk_bathtub_number; ?></a></li>
 			  		 	</ul>
 			  		 </div> 
 			  	</div>
 			  </div>
+			  
+		<?php } ?>
+			  
+			<?php } ?>
 
 
-			  <div class="col-xs-12 col-sm-3 wh_prop_type">
-			  	<div class="prop_sec">
-			  		<div class="prop_img">
-			  			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prop2.jpg">
-			  		</div>
-
-			  		<div class="prop_head">
-			  			<h4>Contact agent</h4>
-			  			<span>Sold on 19 Jan 2018</span>	
-			  		</div>
-
-			  		<div class="locate_text">
-			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png"> 189 East Parkway Lightsview, 5085</h6>
-			  		</div>
-
-			  		 <div class="prop_ul">
-			  		 	<ul>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> 3</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> 2</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"> 2</a></li>
-			  		 	</ul>
-			  		 </div> 
-			  	</div>
-			  </div>
-
-
-			  <div class="col-xs-12 col-sm-3 wh_prop_type">
-			  	<div class="prop_sec">
-			  		<div class="prop_img">
-			  			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prop3.jpg">
-			  		</div>
-
-			  		<div class="prop_head">
-			  			<h4>Contact agent</h4>
-			  			<span>Sold on 19 Jan 2018</span>	
-			  		</div>
-
-			  		<div class="locate_text">
-			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png"> 189 East Parkway Lightsview, 5085</h6>
-			  		</div>
-
-			  		 <div class="prop_ul">
-			  		 	<ul>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> 3</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> 2</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"> 2</a></li>
-			  		 	</ul>
-			  		 </div> 
-			  	</div>
-			  </div>
-
-
-			  <div class="col-xs-12 col-sm-3 wh_prop_type">
-			  	<div class="prop_sec">
-			  		<div class="prop_img">
-			  			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prop4.jpg">
-			  		</div>
-
-			  		<div class="prop_head">
-			  			<h4>Contact agent</h4>
-			  			<span>Sold on 19 Jan 2018</span>	
-			  		</div>
-
-			  		<div class="locate_text">
-			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png"> 189 East Parkway Lightsview, 5085</h6>
-			  		</div>
-
-			  		 <div class="prop_ul">
-			  		 	<ul>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> 3</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> 2</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"> 2</a></li>
-			  		 	</ul>
-			  		 </div> 
-			  	</div>
-			  </div>
-
-
-			  <div class="col-xs-12 col-sm-3 wh_prop_type">
-			  	<div class="prop_sec">
-			  		<div class="prop_img">
-			  			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prop5.jpg">
-			  		</div>
-
-			  		<div class="prop_head">
-			  			<h4>Contact agent</h4>
-			  			<span>Sold on 19 Jan 2018</span>	
-			  		</div>
-
-			  		<div class="locate_text">
-			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png"> 189 East Parkway Lightsview, 5085</h6>
-			  		</div>
-
-			  		 <div class="prop_ul">
-			  		 	<ul>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> 3</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> 2</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"> 2</a></li>
-			  		 	</ul>
-			  		 </div> 
-			  	</div>
-			  </div>
-
-
-			  <div class="col-xs-12 col-sm-3 wh_prop_type">
-			  	<div class="prop_sec">
-			  		<div class="prop_img">
-			  			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prop6.jpg">
-			  		</div>
-
-			  		<div class="prop_head">
-			  			<h4>Contact agent</h4>
-			  			<span>Sold on 19 Jan 2018</span>	
-			  		</div>
-
-			  		<div class="locate_text">
-			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png"> 189 East Parkway Lightsview, 5085</h6>
-			  		</div>
-
-			  		 <div class="prop_ul">
-			  		 	<ul>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> 3</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> 2</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"> 2</a></li>
-			  		 	</ul>
-			  		 </div> 
-			  	</div>
-			  </div>
-
-
-			  <div class="col-xs-12 col-sm-3 wh_prop_type">
-			  	<div class="prop_sec">
-			  		<div class="prop_img">
-			  			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prop7.jpg">
-			  		</div>
-
-			  		<div class="prop_head">
-			  			<h4>Contact agent</h4>
-			  			<span>Sold on 19 Jan 2018</span>	
-			  		</div>
-
-			  		<div class="locate_text">
-			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png"> 189 East Parkway Lightsview, 5085</h6>
-			  		</div>
-
-			  		 <div class="prop_ul">
-			  		 	<ul>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> 3</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> 2</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"> 2</a></li>
-			  		 	</ul>
-			  		 </div> 
-			  	</div>
-			  </div>
-
-
-			  <div class="col-xs-12 col-sm-3 wh_prop_type">
-			  	<div class="prop_sec">
-			  		<div class="prop_img">
-			  			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prop8.jpg">
-			  		</div>
-
-			  		<div class="prop_head">
-			  			<h4>Contact agent</h4>
-			  			<span>Sold on 19 Jan 2018</span>	
-			  		</div>
-
-			  		<div class="locate_text">
-			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png"> 189 East Parkway Lightsview, 5085</h6>
-			  		</div>
-
-			  		 <div class="prop_ul">
-			  		 	<ul>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> 3</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> 2</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"> 2</a></li>
-			  		 	</ul>
-			  		 </div> 
-			  	</div>
-			  </div>
+			 
 
 
 			</div>
@@ -353,35 +227,88 @@ get_header();
 	  </div>
 
 
-	  <div id="tab-2" class="tab-content">
+	  <div id="tab-Sale" class="tab-content">
 		<div class="prop_type">
-			<p  class="text1">12 properties for rent by TIPS Property Management RLA 240800 - ST PETERS</p>
+			
+		<p  class="text1"><?php 
+			
+					$count_posts  = wp_count_posts('properties-post'); 
+					
+					echo $count_posts->publish; ?> 
+					properties for rent by TIPS Property Management RLA 240800 - ST PETERS</p>
+	
 
 			<div class="row">
+			
+			
+				<?php
+			
+		$posts_properties = get_posts(array('post_type'=>'properties-post','post_status'=>'publish','posts_per_page'=>-1,'order'=>'ASC')); 
+		
+		
+						
+			foreach($posts_properties as $post_propertie) {
+							
+			$wk_number_properties_left = get_post_meta($post_propertie->ID,'wpcf-add-number-properties-left',true);	
+			$wk_per_week_price =	get_post_meta($post_propertie->ID,'wpcf-add-per-week-price',true);	
+			$wk_properties_status =	get_post_meta($post_propertie->ID,'wpcf-add-properties-status',true);	
+			$wk_sold_date =	get_post_meta($post_propertie->ID,'wpcf-add-sold-date',true);	
+			$wk_bathroom_numbers =	get_post_meta($post_propertie->ID,'wpcf-add-bathroom-numbers',true);	
+			$wk_parking_space =	get_post_meta($post_propertie->ID,'wpcf-add-parking-space',true);	
+			$wk_bathtub_number =	get_post_meta($post_propertie->ID,'wpcf-add-bathtub-number',true);	
+			$wk_properties_address =	get_post_meta($post_propertie->ID,'wpcf-add-properties-address',true);	
+			$wk_image = wp_get_attachment_url(get_post_thumbnail_ID($post_propertie->ID));
+			
+			 if(!empty($wk_image)){
+								 
+								 $wk_img = $wk_image;
+								 
+							 }else{
+								 
+								  $wk_img = "/wp-content/themes/Tips/images/dummy.jpg";
+								 
+							 }
+	
+	
+		if($wk_properties_status == "Sale"){
+  
+		?>
+		
+			
 			  <div class="col-xs-12 col-sm-3 wh_prop_type">
 			  	<div class="prop_sec">
 			  		<div class="prop_img">
-			  			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prop2.jpg">
+			  			<img src="<?php echo $wk_img; ?>">
 			  		</div>
 
 			  		<div class="prop_head">
-			  			<h4>Contact agent</h4>
-			  			<span>Sold on 19 Jan 2018</span>	
+			  			<h4><?php echo $post_propertie->post_title; ?></h4>
+			  			<span>For <?= $wk_properties_status; ?> <?php if($wk_properties_status == "Sold"){ ?> on <?= date('d M Y ', $wk_sold_date);; ?> <?php } ?></span>	
 			  		</div>
 
 			  		<div class="locate_text">
-			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png"> 189 East Parkway Lightsview, 5085</h6>
+			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png">
+							<?= $wk_properties_address; ?></h6>
 			  		</div>
 
 			  		 <div class="prop_ul">
 			  		 	<ul>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> 3</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> 2</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"> 2</a></li>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> <?= $wk_bathroom_numbers; ?></a></li>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> <?= $wk_parking_space; ?></a></li>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"><?= $wk_bathtub_number; ?></a></li>
 			  		 	</ul>
 			  		 </div> 
 			  	</div>
 			  </div>
+			  
+		<?php } ?>
+			  
+			<?php } ?>
+
+
+			 
+
+
 			</div>
 
 
@@ -391,38 +318,185 @@ get_header();
 
 
 
-	  <div id="tab-3" class="tab-content">
+	  <div id="tab-Rent" class="tab-content">
 		<div class="prop_type">
-			<p  class="text1">12 properties for rent by TIPS Property Management RLA 240800 - ST PETERS</p>
+		
+			<p  class="text1">
+				<?php 
+			
+					$count_posts  = wp_count_posts('properties-post'); 
+					
+					echo $count_posts->publish;
+
+					?> 
+					properties for rent by TIPS Property Management RLA 240800 - ST PETERS</p>
+			
+	
 
 			<div class="row">
+			
+			
+				<?php
+			
+		$posts_properties = get_posts(array('post_type'=>'properties-post','post_status'=>'publish','posts_per_page'=>-1,'order'=>'ASC')); 
+		
+		
+						
+			foreach($posts_properties as $post_propertie) {
+							
+			$wk_number_properties_left = get_post_meta($post_propertie->ID,'wpcf-add-number-properties-left',true);	
+			$wk_per_week_price =	get_post_meta($post_propertie->ID,'wpcf-add-per-week-price',true);	
+			$wk_properties_status =	get_post_meta($post_propertie->ID,'wpcf-add-properties-status',true);	
+			$wk_sold_date =	get_post_meta($post_propertie->ID,'wpcf-add-sold-date',true);	
+			$wk_bathroom_numbers =	get_post_meta($post_propertie->ID,'wpcf-add-bathroom-numbers',true);	
+			$wk_parking_space =	get_post_meta($post_propertie->ID,'wpcf-add-parking-space',true);	
+			$wk_bathtub_number =	get_post_meta($post_propertie->ID,'wpcf-add-bathtub-number',true);	
+			$wk_properties_address =	get_post_meta($post_propertie->ID,'wpcf-add-properties-address',true);	
+			$wk_image = wp_get_attachment_url(get_post_thumbnail_ID($post_propertie->ID));
+			
+			 if(!empty($wk_image)){
+								 
+								 $wk_img = $wk_image;
+								 
+							 }else{
+								 
+								  $wk_img = "/wp-content/themes/Tips/images/dummy.jpg";
+								 
+							 }
+	
+	
+		if($wk_properties_status == "Rent"){
+  
+		?>
+		
+			
 			  <div class="col-xs-12 col-sm-3 wh_prop_type">
 			  	<div class="prop_sec">
 			  		<div class="prop_img">
-			  			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prop1.jpg">
+			  			<img src="<?php echo $wk_img; ?>">
 			  		</div>
 
 			  		<div class="prop_head">
-			  			<h4>Contact agent</h4>
-			  			<span>Sold on 19 Jan 2018</span>	
+			  			<h4><?php echo $post_propertie->post_title; ?></h4>
+			  			<span>For <?= $wk_properties_status; ?> <?php if($wk_properties_status == "Sold"){ ?> on <?= date('d M Y ', $wk_sold_date);; ?> <?php } ?></span>	
 			  		</div>
 
 			  		<div class="locate_text">
-			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png"> 189 East Parkway Lightsview, 5085</h6>
+			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png">
+							<?= $wk_properties_address; ?></h6>
 			  		</div>
 
 			  		 <div class="prop_ul">
 			  		 	<ul>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> 3</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> 2</a></li>
-			  		 	  <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"> 2</a></li>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> <?= $wk_bathroom_numbers; ?></a></li>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> <?= $wk_parking_space; ?></a></li>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"><?= $wk_bathtub_number; ?></a></li>
 			  		 	</ul>
 			  		 </div> 
 			  	</div>
 			  </div>
+			  
+		<?php } ?>
+			  
+			<?php } ?>
+
+
+			 
+
+
 			</div>
+
 		</div>
 	  </div>
+	  
+	  
+	<div id="tab-Construction" class="tab-content">
+		<div class="prop_type">
+		
+			
+			
+			<p  class="text1"><?php 
+			
+					$count_posts  = wp_count_posts('properties-post'); 
+					
+					echo $count_posts->publish; ?> 
+					properties for rent by TIPS Property Management RLA 240800 - ST PETERS</p>
+
+			<div class="row">
+			
+			
+				<?php
+			
+		$posts_properties = get_posts(array('post_type'=>'properties-post','post_status'=>'publish','posts_per_page'=>-1,'order'=>'ASC')); 
+		
+			
+						
+			foreach($posts_properties as $post_propertie) {
+							
+			$wk_number_properties_left = get_post_meta($post_propertie->ID,'wpcf-add-number-properties-left',true);	
+			$wk_per_week_price =	get_post_meta($post_propertie->ID,'wpcf-add-per-week-price',true);	
+			$wk_properties_status =	get_post_meta($post_propertie->ID,'wpcf-add-properties-status',true);	
+			$wk_sold_date =	get_post_meta($post_propertie->ID,'wpcf-add-sold-date',true);	
+			$wk_bathroom_numbers =	get_post_meta($post_propertie->ID,'wpcf-add-bathroom-numbers',true);	
+			$wk_parking_space =	get_post_meta($post_propertie->ID,'wpcf-add-parking-space',true);	
+			$wk_bathtub_number =	get_post_meta($post_propertie->ID,'wpcf-add-bathtub-number',true);	
+			$wk_properties_address =	get_post_meta($post_propertie->ID,'wpcf-add-properties-address',true);	
+			$wk_image = wp_get_attachment_url(get_post_thumbnail_ID($post_propertie->ID));
+			
+			 if(!empty($wk_image)){
+								 
+								 $wk_img = $wk_image;
+								 
+							 }else{
+								 
+								  $wk_img = "/wp-content/themes/Tips/images/dummy.jpg";
+								 
+							 }
+	
+	
+		if($wk_properties_status == "Construction"){
+  
+		?>
+		
+			
+			  <div class="col-xs-12 col-sm-3 wh_prop_type">
+			  	<div class="prop_sec">
+			  		<div class="prop_img">
+			  			<img src="<?php echo $wk_img; ?>">
+			  		</div>
+
+			  		<div class="prop_head">
+			  			<h4><?php echo $post_propertie->post_title; ?></h4>
+			  			<span>Under <?= $wk_properties_status; ?> <?php if($wk_properties_status == "Sold"){ ?> on <?= date('d M Y ', $wk_sold_date);; ?> <?php } ?></span>	
+			  		</div>
+
+			  		<div class="locate_text">
+			  			<h6><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_point.png">
+							<?= $wk_properties_address; ?></h6>
+			  		</div>
+
+			  		 <div class="prop_ul">
+			  		 	<ul>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathroom.png"> <?= $wk_bathroom_numbers; ?></a></li>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/car.png"> <?= $wk_parking_space; ?></a></li>
+			  		 	  <li><a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bathtub.png"><?= $wk_bathtub_number; ?></a></li>
+			  		 	</ul>
+			  		 </div> 
+			  	</div>
+			  </div>
+			  
+		<?php } ?>
+			  
+			<?php } ?>
+
+
+			 
+
+
+			</div>
+
+		</div>
+	</div>
 
 
 
